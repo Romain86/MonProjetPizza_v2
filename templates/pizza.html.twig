@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+{% include "head.html.twig" %}
+
+<div class='container'>
+
+
+
+
+    <div class='col-sm-4 col-md-4'>
+        <img src={{asset('images/')}}{{ pizza.id}}.jpg alt={{pizza.DesignPizz}}>
+
+
+        <div class='description'>
+            <h2><b>{{ pizza.DesignPizz}}</b></h2>
+            <p><u>Prix :</u> {{ pizza.TarifPizz}} euros</p>
+
+            <a class='btn btn-info' href={{ path('updatePizza', { 'id' : pizza.id}) }}>Modifier</a>
+            <a class='btn btn-info' href={{ path('deletePizza', { 'id' : pizza.id}) }}>Supprimer</a>
+            <a class='btn btn-info' href={{ path('showPizza', { 'id' : pizza.id}) }}>Editer</a>
+        </div>
+    </div>
+
+
+</div>
+
+{% include "footer.html.twig" %}
+
+
+{% endblock %}

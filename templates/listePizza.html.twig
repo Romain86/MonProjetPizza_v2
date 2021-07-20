@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    {% include "head.html.twig" %}
+
+    <div style="width: 100%;">
+
+        {% for message in app.flashes('warning') %}
+        <div class="alert alert-warning" style="width: 100%;">
+            {{ message }}
+        </div>
+        {% endfor %}
+
+        {% for message in app.flashes('success') %}
+        <div class="alert alert-success" style="width: 100%;">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    
+    
+    <div class='container'>
+
+        {% for pizza in pizzas %}
+
+
+        <div class='col-sm-4 col-md-4'>
+
+            <a href={{ path('showPizza', { 'id' : pizza.id}) }}>
+                <img src={{asset('images/')}}{{ pizza.id}}.jpg alt={{pizza.DesignPizz}}>
+            </a>
+
+            <div class='description'>
+                <h2><b>{{ pizza.DesignPizz}}</b></h2>
+                <p><u>Prix :</u> {{ pizza.TarifPizz}} euros</p>
+
+                <a class='btn btn-info' href={{ path('updatePizza', { 'id' : pizza.id}) }}>Modifier</a>
+                <a class='btn btn-info' href={{ path('deletePizza', { 'id' : pizza.id}) }}>Supprimer</a>
+                <a class='btn btn-info' href={{ path('showPizza', { 'id' : pizza.id}) }}>Editer</a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+
+    {% include "footer.html.twig" %}
+
+{% endblock %}
+
