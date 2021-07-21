@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+{% include "head.html.twig" %}
+
+<form action={{ path("insertPizza") }} method="post" enctype="multipart/form-data">
+    <label for="photo">Photo de la pizza :</label>
+    <input type="file" name="photo" id="photo">
+    <label for="nom">Nom de la Pizza :</label>
+    <input type="text" name="nom" id="nom"><br>
+    <label for="tarif">Prix de la pizza :</label>
+    <input type="number" name="tarif" id="tarif" step="0.01"><br>
+    <input type="submit" value="Sauvegarder">
+</form>
+
+{% include "footer.html.twig" %}
+
+{% endblock %}

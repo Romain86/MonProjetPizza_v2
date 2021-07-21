@@ -19,6 +19,7 @@ class PizzaType extends AbstractType
             ->add('File', FileType::class, [
                 'label' => 'Image de la pizza',
                 'mapped' => false,
+                'attr' => ['name' => 'files[]'],
                 'required' => false
             ])
             ->add('DesignPizz', TextType::class, [
@@ -28,8 +29,8 @@ class PizzaType extends AbstractType
                 'label' => 'tarif de la pizza'
             ])
             ->add('Enregistrer', SubmitType::class)
-            ;
-        }
+            ;   
+    }
 
 
     public function configureOptions(OptionsResolver $resolver): void
